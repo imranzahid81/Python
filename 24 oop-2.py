@@ -24,11 +24,12 @@ emp_2 = Employee('Talha', 'Hameed', 50000)
 # emp_1.apply_raise()
 # print(f"Employee 1 pay After Raise : {emp_1.pay}")
 
-# But what if we can edit or see the raise amount which in above code is dispersed 
+# But what if we can edit or see the raise amount which in above code is dispersed
 
 
 class Employee01:
 
+    num_of_emps = 0
     raise_amount = 1.04
 
     def __init__(self, first, last, pay):
@@ -36,6 +37,7 @@ class Employee01:
         self.last = last
         self.pay = pay
         self.email = f"{first}.{last}@company.com"
+        Employee01.num_of_emps += 1
 
     def fullname(self):
         return(f'Full Name : {self.first} {self.last}')
@@ -47,6 +49,7 @@ class Employee01:
 
 emp_1 = Employee01('Imran', 'Zahid', 60000)
 emp_2 = Employee01('Talha', 'Hameed', 50000)
+emp_3 = Employee01('Yousuf', 'Qutubuddin', 50000)
 emp_1.apply_raise()
 
 # to see what methods are available in our Class Employee :
@@ -64,3 +67,4 @@ print(f"Employee 1 Raise Amount : {emp_1.raise_amount}")
 print(f"Employee 2 Raise Amount : {emp_2.raise_amount}")
 print(f"Employee 1 pay After Raise : {emp_1.pay}")
 print(f"Employee 2 pay Remains the Same : {emp_2.pay}")
+print(f"Number of Employees : {Employee01.num_of_emps}")
