@@ -24,6 +24,6 @@ print(f"Employee 1 pay before Raise : {emp_1.pay}")
 emp_1.apply_raise()
 print(f"Employee 1 pay After Raise : {emp_1.pay}")
 
-
+# But what if we can edit or see the raise amount which in above code is dispersed 
 
 
