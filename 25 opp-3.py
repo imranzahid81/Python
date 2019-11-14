@@ -122,6 +122,7 @@ class Employee02:
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
 
+    # This is for Parsing string Automatically:
     @classmethod
     def from_string(cls, emp_str):
         first, last, pay = emp_str.split('-')
@@ -150,7 +151,7 @@ print(Employee02.num_of_emps)
 # Static Method :
 
 
-class Employee02:
+class Employee03:
 
     num_of_emps = 0
     raise_amt = 1.04
@@ -160,7 +161,7 @@ class Employee02:
         self.last = last
         self.pay = pay
         self.email = f"{first}.{last}@company.com"
-        Employee02.num_of_emps += 1
+        Employee03.num_of_emps += 1
 
     def fullname(self):
         return(f'Full Name : {self.first} {self.last}')
@@ -174,13 +175,25 @@ class Employee02:
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
 
+    # This is for Parsing string Automatically:
     @classmethod
     def from_string(cls, emp_str):
         first, last, pay = emp_str.split('-')
         return cls(first, last, pay)
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
 
-emp_1 = Employee02('Imran', 'Zahid', 60000)
-emp_2 = Employee02('Talha', 'Hameed', 50000)
-emp_3 = Employee02('Yousuf', 'Qutubuddin', 50000)
+
+emp_1 = Employee03('Imran', 'Zahid', 60000)
+emp_2 = Employee03('Talha', 'Hameed', 50000)
+
+import datetime
+my_date = datetime.date(2016, 7, 11)
+
+print(f"Is it a work Day? : {Employee03.is_workday(my_date)}")
+
 
