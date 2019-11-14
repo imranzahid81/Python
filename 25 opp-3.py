@@ -126,8 +126,6 @@ class Employee02:
     def from_string(cls, emp_str):
         first, last, pay = emp_str.split('-')
         return cls(first, last, pay)
-        
-
 
 
 emp_1 = Employee02('Imran', 'Zahid', 60000)
@@ -148,3 +146,41 @@ new_emp_3 = Employee02.from_string(emp_str_3)
 print(new_emp_1.email)
 print(new_emp_1.pay)
 print(Employee02.num_of_emps)
+
+# Static Method :
+
+
+class Employee02:
+
+    num_of_emps = 0
+    raise_amt = 1.04
+
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = f"{first}.{last}@company.com"
+        Employee02.num_of_emps += 1
+
+    def fullname(self):
+        return(f'Full Name : {self.first} {self.last}')
+
+    # applying raise value by new custom method:
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)     # 4 % Raise
+
+    # cls variable is representing class as word class cannot be used......
+    @classmethod
+    def set_raise_amt(cls, amount):
+        cls.raise_amt = amount
+
+    @classmethod
+    def from_string(cls, emp_str):
+        first, last, pay = emp_str.split('-')
+        return cls(first, last, pay)
+
+
+emp_1 = Employee02('Imran', 'Zahid', 60000)
+emp_2 = Employee02('Talha', 'Hameed', 50000)
+emp_3 = Employee02('Yousuf', 'Qutubuddin', 50000)
+
